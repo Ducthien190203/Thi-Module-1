@@ -52,6 +52,13 @@ function addNewBook() {
     return;
   }
 
+  // Kiểm tra mã số sách có trùng lặp không
+  const isDuplicate = books.some((book) => book.id === id);
+  if (isDuplicate) {
+    alert("Mã số sách đã tồn tại. Vui lòng nhập mã khác.");
+    return;
+  }
+
   const name = prompt("Nhập tên sách:");
   if (!name || name.trim() === "") {
     alert("Tên sách không được để trống.");
